@@ -1,0 +1,35 @@
+{
+  apps : [
+    {
+        "name"             : "API_Server_Staging",
+        "cwd"              : "/home/ec2-user/API_Server_Staging",
+        "script"           : "app.js",
+        "log_date_format"  : "YYYY-MM-DD HH:mm Z",
+        "error_file"       : "/var/log/API_Server_Staging/stderr.log",
+        "out_file"         : "/var/log/API_Server_Staging/stdout.log",
+        "instances"        : 1,
+        "merge_logs"       : true,
+        "exec_interpreter" : "node",
+        "exec_mode"        : "cluster",
+        "autorestart"      : true, // enable/disable automatic restart when an app crashes or exits
+        "vizion"           : false, // enable/disable vizion features (versioning control)
+        "env": {
+            "NODE_ENV"    : "staging",
+            "HOST"        : "http://ec2-52-43-79-87.us-west-2.compute.amazonaws.com",
+            "PORT"        : 8080,
+            "MONGODB_URL" : "mongodb://localhost:27017/API_Server_Staging"
+        }
+    }
+  ],
+    deploy : {
+        staging : {
+            user : "ec2-user",
+            host : "52.43.79.87",
+            key  : "lloyd.pem",
+            ref  : "origin/master",
+            repo : "git@bitbucket.org:lloyd_presly/mvc_sample.git",
+            path : "/home/ec2-user/API_Server_Staging",
+            "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json5 --env staging"
+        }
+    }
+}
