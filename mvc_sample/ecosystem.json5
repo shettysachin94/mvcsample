@@ -24,12 +24,13 @@
     deploy : {
         staging : {
             user : "ec2-user",
-            host : "52.43.79.87",
-            key  : "lloyd.pem",
+            host : "52.66.24.226",
+            key  : "sachi.pem",
             ref  : "origin/master",
-            repo : "git@bitbucket.org:lloyd_presly/mvc_sample.git",
+            repo : "git@github.com:shettysachin94/mvcsample.git",
             path : "/home/ec2-user/API_Server_Staging",
             "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json5 --env staging"
         }
     }
 }
+
