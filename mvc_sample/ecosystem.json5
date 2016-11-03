@@ -24,7 +24,7 @@
     deploy : {
         staging : {
             user : "ec2-user",
-            host : "52.66.24.226",
+            host : "52.66.112.42",
             key  : "sachi.pem",
             ref  : "origin/master",
             repo : "git@github.com:shettysachin94/mvcsample.git",
