@@ -3,7 +3,6 @@
  * Module           : Clustering and Bootstrapping
  * Source filename  : app.js
  * Description      : Cluster and fork to number of CPU's available and bootstrap modules.
- * Author           : Lloyd Presly Saldanha <lloyd.presly@gmail.com>
  * Copyright        : Copyright © 2014,
  *                    Written under contract by DingChak.
  */
